@@ -21,7 +21,7 @@ import OrderManagement from './components/Admin/OrderManagement';
 
 import { Provider } from "react-redux";
 import store from './redux/store';
-import ProtectedRoute from './components/Common/protectedRoute';
+import ProtectedRoute from './components/Common/ProtectedRoute';
 import CreateProductPage from './components/Admin/CreateProductPage';
 import AdminOrderDetails from './components/Admin/AdminOrderDetails';
 
