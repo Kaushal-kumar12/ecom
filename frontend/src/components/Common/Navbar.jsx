@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import {
     HiOutlineUser,
     HiOutlineShoppingBag,
@@ -14,7 +14,9 @@ const Navbar = () => {
     const [drawerOpen, setOpenDrawer] = useState(false);
     const [navDrawerOpen, setNavDrawerOpen] = useState(false);
     const { cart } = useSelector((state) => state.cart);
-    const {user} = useSelector((state) => state.auth);
+    const { user } = useSelector((state) => state.auth);
+    const navigate = useNavigate();
+
 
     const cartItemCount =
         cart?.products?.reduce((total, product) => total + product.quantity, 0) ||
@@ -64,9 +66,18 @@ const Navbar = () => {
                             Admin
                         </Link>)
                     }
-                    <Link to="/profile" className='hover:text-black'>
+                    <button
+                        onClick={() => {
+                            if (user) {
+                                navigate("/profile");
+                            } else {
+                                navigate("/login");
+                            }
+                        }}
+                        className='hover:text-black'
+                    >
                         <HiOutlineUser className="h-6 w-6 text-gray-700" />
-                    </Link>
+                    </button>
                     <button
                         onClick={toggleCartDrawer}
                         className='relative hover:text-black'>
