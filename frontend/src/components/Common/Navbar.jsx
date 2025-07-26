@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import logo from '../../assets/logo.png'; // Adjust path as per your project structure
 import { Link, useNavigate } from 'react-router-dom'
 import {
     HiOutlineUser,
@@ -34,8 +35,8 @@ const Navbar = () => {
             <nav className='container mx-auto flex items-center justify-between py-4 px-10'>
                 {/* Left-logo */}
                 <div>
-                    <Link to='/' className='text-2xl font-medium'>
-                        KW
+                    <Link to='/'>
+                        <img src={logo} alt="Logo" className="h-10 w-auto" />
                     </Link>
                 </div>
                 {/* center navigation link */}
